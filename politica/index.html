@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade · O Código do Compromisso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose:       #C8536A;
+    --rose-dark:  #8A2D42;
+    --rose-light: #F9E8EC;
+    --gold:       #C9A96E;
+    --gold-light: #F5ECD8;
+    --cream:      #FEFAF5;
+    --deep:       #1C0A10;
+    --text:       #3A1E28;
+    --muted:      #7A6070;
+    --border:     rgba(200,83,106,0.1);
+    --white:      #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(150deg, #1C0A10 0%, #3D1020 60%, #5C1A32 100%);
+    padding: 56px 24px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '🔒';
+    position: absolute;
+    font-size: 340px;
+    opacity: 0.04;
+    right: -40px; top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+  .header-inner { position: relative; z-index: 1; }
+  .header-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    display: block;
+    text-decoration: none;
+  }
+  .header-logo span { color: var(--rose); }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,83,106,0.15);
+    border: 1px solid rgba(200,83,106,0.25);
+    color: var(--rose);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 22px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+  }
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 5.5vw, 54px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  header h1 em { color: var(--rose); font-style: italic; }
+  .header-meta {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ── LAYOUT ── */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 80px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 52px;
+    align-items: start;
+  }
+  @media(max-width: 820px) {
+    .page-wrap { grid-template-columns: 1fr; gap: 0; }
+    .sidebar { display: none; }
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 32px;
+  }
+  .sidebar-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 6px 28px rgba(200,83,106,0.08);
+    border: 1px solid var(--border);
+  }
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .toc-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+  .toc-list a:hover, .toc-list a.active {
+    background: var(--rose-light);
+    color: var(--rose-dark);
+  }
+  .toc-num {
+    width: 22px; height: 22px;
+    background: var(--rose-light);
+    color: var(--rose);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .toc-list a:hover .toc-num, .toc-list a.active .toc-num {
+    background: var(--rose);
+    color: #fff;
+  }
+
+  .sidebar-contact {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
+    border-radius: 16px;
+    padding: 20px 18px;
+    border: 1px solid rgba(200,83,106,0.12);
+  }
+  .sidebar-contact .sc-title { font-size: 13px; font-weight: 700; color: var(--deep); margin-bottom: 6px; }
+  .sidebar-contact .sc-text { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+  .sidebar-contact a { color: var(--rose-dark); font-weight: 700; text-decoration: none; }
+  .sidebar-contact a:hover { text-decoration: underline; }
+
+  /* ── CONTENT ── */
+  .content { min-width: 0; }
+
+  .last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-light);
+    border: 1px solid rgba(201,169,110,0.25);
+    color: #7A5C2A;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 50px;
+    margin-bottom: 36px;
+  }
+
+  .intro-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 40px;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--rose);
+    box-shadow: 0 4px 24px rgba(200,83,106,0.06);
+  }
+  .intro-box p {
+    font-size: 16.5px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .intro-box p + p { margin-top: 14px; }
+  .intro-box strong { color: var(--rose-dark); }
+
+  /* SECTIONS */
+  .policy-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 44px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    scroll-margin-top: 32px;
+  }
+  .policy-section:hover {
+    box-shadow: 0 8px 36px rgba(200,83,106,0.08);
+  }
+  .ps-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .ps-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .ic1  { background: linear-gradient(135deg, #FFE8EC, #FFD0D8); }
+  .ic2  { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+  .ic3  { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .ic4  { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .ic5  { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .ic6  { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+  .ic7  { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); }
+  .ic8  { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+  .ic9  { background: linear-gradient(135deg, #EFEBE9, #D7CCC8); }
+  .ic10 { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+
+  .ps-title-wrap {}
+  .ps-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .ps-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-weight: 700;
+    color: var(--deep);
+    line-height: 1.2;
+  }
+
+  .policy-section p {
+    font-size: 15.5px;
+    color: #4A3040;
+    line-height: 1.82;
+    margin-bottom: 16px;
+  }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-section strong { color: var(--rose-dark); }
+
+  .policy-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--deep);
+    margin: 24px 0 10px;
+  }
+
+  .list-clean {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .list-clean li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15.5px;
+    color: #4A3040;
+    line-height: 1.65;
+  }
+  .list-clean li::before {
+    content: '✦';
+    color: var(--rose);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border: 1px solid rgba(200,83,106,0.12);
+  }
+  .highlight-box p {
+    font-size: 15px;
+    color: var(--rose-dark);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .contact-block {
+    background: linear-gradient(135deg, #1C0A10, #3D1020);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 20px;
+  }
+  .contact-block p { color: rgba(255,255,255,0.75); font-size: 15px; margin-bottom: 8px; }
+  .contact-block a { color: var(--gold); font-weight: 700; text-decoration: none; }
+  .contact-block a:hover { text-decoration: underline; }
+
+  /* ── FINAL NOTE ── */
+  .final-note {
+    background: linear-gradient(135deg, var(--deep), #3D1020);
+    border-radius: 24px;
+    padding: 48px 44px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .final-note .fn-icon { font-size: 44px; margin-bottom: 16px; }
+  .final-note h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .final-note p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 480px; margin: 0 auto 24px; }
+  .fn-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .fn-links a {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+  .fn-links a:hover { color: var(--white); border-color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer p { color: rgba(255,255,255,0.3); font-size: 13px; line-height: 1.8; }
+  footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+  footer a:hover { color: var(--rose); }
+
+  /* ── BACK TO TOP ── */
+  #backTop {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    background: var(--rose);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(200,83,106,0.4);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    border: none;
+    z-index: 100;
+  }
+  #backTop.visible { opacity: 1; pointer-events: all; }
+  #backTop:hover { transform: translateY(-4px); background: var(--rose-dark); }
+
+  @media(max-width: 600px) {
+    .policy-section { padding: 28px 24px; }
+    .intro-box { padding: 28px 24px; }
+    .final-note { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">O Código do <span>Compromisso</span></a>
+    <div class="header-badge">🔒 Documento legal</div>
+    <h1>Política de <em>Privacidade</em></h1>
+    <div class="header-meta">
+      <span>📅 Última atualização: Janeiro de 2025</span>
+      <span>📋 Versão 1.0</span>
+      <span>🇧🇷 Conforme a LGPD</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── BODY ── -->
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Índice de seções</div>
+      <ul class="toc-list">
+        <li><a href="#s1"><span class="toc-num">1</span> Quem somos</a></li>
+        <li><a href="#s2"><span class="toc-num">2</span> Dados coletados</a></li>
+        <li><a href="#s3"><span class="toc-num">3</span> Como usamos</a></li>
+        <li><a href="#s4"><span class="toc-num">4</span> Compartilhamento</a></li>
+        <li><a href="#s5"><span class="toc-num">5</span> Cookies</a></li>
+        <li><a href="#s6"><span class="toc-num">6</span> Seus direitos</a></li>
+        <li><a href="#s7"><span class="toc-num">7</span> Segurança</a></li>
+        <li><a href="#s8"><span class="toc-num">8</span> Retenção</a></li>
+        <li><a href="#s9"><span class="toc-num">9</span> Menores</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span> Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-contact">
+      <div class="sc-title">🤝 Dúvidas?</div>
+      <p class="sc-text">Entre em contato com nosso encarregado de dados:<br><a href="mailto:privacidade@ocodigodocompromisso.com.br">privacidade@ocodigodocompromisso.com.br</a></p>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="last-updated">📅 Atualizado em Janeiro de 2025</div>
+
+    <div class="intro-box">
+      <p>A sua privacidade é muito importante para nós. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as suas informações pessoais quando você acessa nosso site, adquire nossos produtos ou interage conosco de qualquer forma.</p>
+      <p>Esta política está em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong> e outras legislações aplicáveis. Ao utilizar nosso site ou adquirir nossos produtos, você concorda com os termos descritos abaixo.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="policy-section" id="s1">
+      <div class="ps-header">
+        <div class="ps-icon ic1">🏢</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 01</div>
+          <div class="ps-title">Quem Somos (Controlador dos Dados)</div>
+        </div>
+      </div>
+      <p>O responsável pelo tratamento dos seus dados pessoais é o titular do produto <strong>O Código do Compromisso</strong>, doravante denominado simplesmente "nós", "nosso" ou "Empresa".</p>
+      <p>Para fins desta política, somos o <strong>Controlador de Dados</strong> conforme definido pela LGPD, ou seja, tomamos as decisões sobre como e por que seus dados são tratados.</p>
+      <p>Para entrar em contato conosco a respeito de suas informações pessoais ou desta política, utilize o e-mail: <strong>privacidade@ocodigodocompromisso.com.br</strong></p>
+    </div>
+
+    <!-- 2 -->
+    <div class="policy-section" id="s2">
+      <div class="ps-header">
+        <div class="ps-icon ic2">📋</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 02</div>
+          <div class="ps-title">Quais Dados Coletamos</div>
+        </div>
+      </div>
+      <p>Coletamos diferentes tipos de informações dependendo de como você interage conosco:</p>
+
+      <h3>Dados fornecidos diretamente por você</h3>
+      <ul class="list-clean">
+        <li><strong>Nome completo</strong> — para personalizar sua experiência e emitir documentos fiscais quando aplicável.</li>
+        <li><strong>Endereço de e-mail</strong> — para enviar o acesso ao produto adquirido, comunicações sobre sua compra e, com seu consentimento, materiais de marketing.</li>
+        <li><strong>CPF</strong> — quando necessário para fins fiscais e de identificação na plataforma de pagamento.</li>
+        <li><strong>Dados de pagamento</strong> — processados diretamente pela plataforma de pagamento (não armazenamos dados de cartão de crédito em nossos servidores).</li>
+        <li><strong>Mensagens de contato</strong> — quando você nos envia e-mails ou preenche formulários de suporte.</li>
+      </ul>
+
+      <h3>Dados coletados automaticamente</h3>
+      <ul class="list-clean">
+        <li><strong>Endereço IP</strong> e informações sobre seu dispositivo e navegador.</li>
+        <li><strong>Páginas visitadas</strong>, tempo de permanência e interações com o site.</li>
+        <li><strong>Fonte de acesso</strong> — como você chegou ao nosso site (busca orgânica, anúncio, link direto etc.).</li>
+        <li><strong>Cookies e tecnologias similares</strong> — detalhados na seção específica abaixo.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>⚠️ Nunca coletamos dados sensíveis como raça, orientação sexual, saúde ou dados biométricos.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="policy-section" id="s3">
+      <div class="ps-header">
+        <div class="ps-icon ic3">⚙️</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 03</div>
+          <div class="ps-title">Como Utilizamos Seus Dados</div>
+        </div>
+      </div>
+      <p>Utilizamos suas informações pessoais somente para finalidades legítimas, específicas e informadas. Veja abaixo as finalidades e as bases legais correspondentes previstas na LGPD:</p>
+
+      <ul class="list-clean">
+        <li><strong>Entrega do produto adquirido:</strong> envio do e-book e bônus por e-mail após a confirmação de pagamento. Base legal: execução de contrato (Art. 7º, V, LGPD).</li>
+        <li><strong>Comunicações sobre a compra:</strong> confirmação de pedido, notas fiscais, atualizações de acesso. Base legal: execução de contrato.</li>
+        <li><strong>Suporte ao cliente:</strong> responder suas dúvidas, reclamações e solicitações de reembolso. Base legal: execução de contrato e legítimo interesse.</li>
+        <li><strong>E-mail marketing:</strong> com seu consentimento expresso, enviaremos conteúdos relacionados ao tema do produto, novidades e ofertas. Você pode cancelar a qualquer momento. Base legal: consentimento (Art. 7º, I, LGPD).</li>
+        <li><strong>Melhoria do site e produtos:</strong> análise de comportamento de navegação para otimizar a experiência. Base legal: legítimo interesse (Art. 7º, IX, LGPD).</li>
+        <li><strong>Obrigações legais:</strong> cumprimento de exigências fiscais, contábeis e regulatórias. Base legal: cumprimento de obrigação legal (Art. 7º, II, LGPD).</li>
+        <li><strong>Veiculação de anúncios relevantes:</strong> podemos usar dados agregados e anonimizados para otimizar campanhas publicitárias. Base legal: legítimo interesse e consentimento via cookies.</li>
+      </ul>
+    </div>
+
+    <!-- 4 -->
+    <div class="policy-section" id="s4">
+      <div class="ps-header">
+        <div class="ps-icon ic4">🤝</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 04</div>
+          <div class="ps-title">Compartilhamento de Dados</div>
+        </div>
+      </div>
+      <p><strong>Não vendemos, alugamos ou comercializamos seus dados pessoais</strong> com terceiros para fins de marketing sem o seu consentimento explícito.</p>
+      <p>Compartilhamos seus dados somente nas seguintes situações e com as seguintes categorias de parceiros:</p>
+
+      <ul class="list-clean">
+        <li><strong>Plataformas de pagamento</strong> (ex.: Hotmart, Monetizze, Kiwify ou similar): necessário para processar sua compra com segurança. Essas plataformas possuem suas próprias políticas de privacidade.</li>
+        <li><strong>Plataformas de e-mail marketing</strong> (ex.: ActiveCampaign, MailChimp ou similar): para envio de comunicações autorizadas por você.</li>
+        <li><strong>Ferramentas de análise</strong> (ex.: Google Analytics): para entender como o site é utilizado, de forma agregada e anonimizada.</li>
+        <li><strong>Plataformas de anúncios</strong> (ex.: Meta Ads / Facebook Ads): pixels de conversão para otimização de campanhas, conforme sua preferência de cookies.</li>
+        <li><strong>Autoridades públicas:</strong> quando exigido por lei, ordem judicial ou regulamentação aplicável.</li>
+      </ul>
+
+      <p>Todos os parceiros com quem compartilhamos dados são contratualmente obrigados a proteger suas informações e utilizá-las apenas para as finalidades autorizadas.</p>
+    </div>
+
+    <!-- 5 -->
+    <div class="policy-section" id="s5">
+      <div class="ps-header">
+        <div class="ps-icon ic5">🍪</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 05</div>
+          <div class="ps-title">Cookies e Tecnologias de Rastreamento</div>
+        </div>
+      </div>
+      <p>Nosso site utiliza cookies — pequenos arquivos de texto armazenados no seu dispositivo — e tecnologias similares para melhorar sua experiência e entender como o site é utilizado.</p>
+
+      <h3>Tipos de cookies que utilizamos</h3>
+      <ul class="list-clean">
+        <li><strong>Cookies essenciais:</strong> necessários para o funcionamento básico do site (ex.: carrinho de compras, sessão de login). Não podem ser desativados.</li>
+        <li><strong>Cookies analíticos:</strong> coletam informações anônimas sobre como você usa o site para nos ajudar a melhorá-lo (ex.: Google Analytics).</li>
+        <li><strong>Cookies de marketing:</strong> usados para exibir anúncios relevantes para você em outras plataformas (ex.: Pixel do Facebook/Meta). Requerem seu consentimento.</li>
+        <li><strong>Cookies de preferência:</strong> lembram suas escolhas, como idioma e região.</li>
+      </ul>
+
+      <h3>Como gerenciar seus cookies</h3>
+      <p>Você pode controlar e/ou excluir cookies a qualquer momento pelas configurações do seu navegador. Ao desativar certos cookies, algumas funcionalidades do site podem ser afetadas. Para saber mais, consulte a documentação do seu navegador.</p>
+
+      <div class="highlight-box">
+        <p>🍪 Ao continuar navegando em nosso site sem alterar as configurações, você concorda com o uso de cookies essenciais e analíticos conforme descrito nesta política.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="policy-section" id="s6">
+      <div class="ps-header">
+        <div class="ps-icon ic6">⚖️</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 06</div>
+          <div class="ps-title">Seus Direitos como Titular dos Dados</div>
+        </div>
+      </div>
+      <p>A LGPD garante a você, como titular dos dados, um conjunto de direitos que podem ser exercidos a qualquer momento. São eles:</p>
+
+      <ul class="list-clean">
+        <li><strong>Confirmação e acesso:</strong> solicitar confirmação de que tratamos seus dados e obter uma cópia das informações que temos sobre você.</li>
+        <li><strong>Correção:</strong> solicitar a correção de dados incompletos, inexatos ou desatualizados.</li>
+        <li><strong>Anonimização, bloqueio ou eliminação:</strong> para dados desnecessários, excessivos ou tratados em desconformidade com a LGPD.</li>
+        <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado para transferência a outro fornecedor, quando tecnicamente viável.</li>
+        <li><strong>Eliminação:</strong> solicitar a exclusão dos dados tratados com base no seu consentimento.</li>
+        <li><strong>Revogação do consentimento:</strong> revogar o consentimento dado a qualquer momento, sem prejuízo dos tratamentos realizados anteriormente.</li>
+        <li><strong>Informação sobre compartilhamento:</strong> saber com quais terceiros seus dados foram compartilhados.</li>
+        <li><strong>Oposição:</strong> se opor a tratamentos realizados com base em legítimo interesse quando não justificado adequadamente.</li>
+        <li><strong>Petição à ANPD:</strong> peticionar perante a Autoridade Nacional de Proteção de Dados (ANPD) em caso de descumprimento desta política.</li>
+      </ul>
+
+      <p>Para exercer qualquer um desses direitos, entre em contato conosco pelo e-mail <strong>privacidade@ocodigodocompromisso.com.br</strong>. Responderemos em até <strong>15 dias úteis</strong>.</p>
+    </div>
+
+    <!-- 7 -->
+    <div class="policy-section" id="s7">
+      <div class="ps-header">
+        <div class="ps-icon ic7">🛡️</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 07</div>
+          <div class="ps-title">Segurança dos Dados</div>
+        </div>
+      </div>
+      <p>Adotamos medidas técnicas e organizacionais razoáveis para proteger seus dados pessoais contra acesso não autorizado, perda, destruição ou divulgação indevida. Entre as medidas adotadas estão:</p>
+
+      <ul class="list-clean">
+        <li>Transmissão de dados criptografada via <strong>protocolo HTTPS/SSL</strong>.</li>
+        <li>Acesso restrito aos dados pessoais, limitado a colaboradores e parceiros com necessidade operacional justificada.</li>
+        <li>Plataformas de pagamento certificadas com <strong>padrão PCI-DSS</strong> — não armazenamos dados de cartão de crédito.</li>
+        <li>Revisão periódica de práticas de segurança e políticas de acesso.</li>
+      </ul>
+
+      <p>Embora envidemos todos os esforços para proteger suas informações, nenhum sistema de segurança é 100% infalível. Em caso de incidente de segurança que possa afetar seus direitos, notificaremos você e a ANPD conforme exigido pela LGPD.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="policy-section" id="s8">
+      <div class="ps-header">
+        <div class="ps-icon ic8">📦</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 08</div>
+          <div class="ps-title">Retenção e Exclusão dos Dados</div>
+        </div>
+      </div>
+      <p>Mantemos seus dados pessoais pelo tempo necessário para cumprir as finalidades descritas nesta política, observando sempre os requisitos legais aplicáveis:</p>
+
+      <ul class="list-clean">
+        <li><strong>Dados de compra e fiscais:</strong> mantidos por no mínimo 5 anos, conforme exigência da legislação tributária brasileira.</li>
+        <li><strong>Dados de e-mail marketing:</strong> mantidos enquanto você não revogar o consentimento ou solicitar descadastramento.</li>
+        <li><strong>Dados de navegação (analytics):</strong> mantidos de forma anonimizada por até 26 meses.</li>
+        <li><strong>Solicitações de suporte:</strong> mantidas por até 2 anos após o encerramento do atendimento.</li>
+      </ul>
+
+      <p>Após o término do período de retenção ou mediante solicitação legítima, seus dados serão excluídos de forma segura ou anonimizados permanentemente.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="policy-section" id="s9">
+      <div class="ps-header">
+        <div class="ps-icon ic9">👶</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 09</div>
+          <div class="ps-title">Menores de Idade</div>
+        </div>
+      </div>
+      <p>Nosso produto e site são destinados exclusivamente a <strong>maiores de 18 anos</strong>. Não coletamos intencionalmente dados pessoais de menores de idade.</p>
+      <p>Se você acredita que uma criança ou adolescente forneceu dados pessoais ao nosso site sem autorização dos responsáveis, entre em contato imediatamente pelo e-mail <strong>privacidade@ocodigodocompromisso.com.br</strong> para que possamos tomar as medidas cabíveis, incluindo a exclusão desses dados.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="policy-section" id="s10">
+      <div class="ps-header">
+        <div class="ps-icon ic10">📬</div>
+        <div class="ps-title-wrap">
+          <div class="ps-num">Seção 10</div>
+          <div class="ps-title">Contato e Encarregado de Dados (DPO)</div>
+        </div>
+      </div>
+      <p>Se você tiver qualquer dúvida, comentário ou solicitação relacionada a esta Política de Privacidade ou ao tratamento dos seus dados pessoais, entre em contato com nosso Encarregado pelo Tratamento de Dados Pessoais (DPO):</p>
+
+      <div class="contact-block">
+        <p>📧 E-mail: <a href="mailto:privacidade@ocodigodocompromisso.com.br">privacidade@ocodigodocompromisso.com.br</a></p>
+        <p>⏱️ Prazo de resposta: até 15 dias úteis</p>
+        <p>🏛️ Autoridade Nacional de Proteção de Dados (ANPD): <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">www.gov.br/anpd</a></p>
+      </div>
+
+      <p style="margin-top:20px;">Esta política pode ser atualizada periodicamente para refletir mudanças em nossas práticas ou na legislação aplicável. Quando isso ocorrer, atualizaremos a data no topo desta página e, em caso de alterações relevantes, notificaremos você por e-mail.</p>
+    </div>
+
+    <!-- FINAL NOTE -->
+    <div class="final-note">
+      <div class="fn-icon">🔒</div>
+      <h3>Sua privacidade é nossa prioridade</h3>
+      <p>Levamos a proteção dos seus dados a sério. Esta política foi elaborada com transparência e em total conformidade com a LGPD para garantir que você tenha controle sobre suas informações.</p>
+      <div class="fn-links">
+        <a href="index.html">← Voltar ao site</a>
+        <a href="termos.html">Termos de Uso</a>
+        <a href="mailto:privacidade@ocodigodocompromisso.com.br">Falar com DPO</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:900px;margin:0 auto;">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,255,255,0.5);font-size:18px;margin-bottom:10px;">O Código do <span style="color:#C8536A;">Compromisso</span></p>
+    <p>© 2025 O Código do Compromisso · Todos os direitos reservados<br>
+    <a href="index.html">Início</a> · <a href="politica.html">Política de Privacidade</a> · <a href="termos.html">Termos de Uso</a> · <a href="mailto:suporte@ocodigodocompromisso.com.br">Suporte</a></p>
+    <p style="margin-top:10px;font-size:12px;">Em conformidade com a Lei Geral de Proteção de Dados — LGPD (Lei nº 13.709/2018)</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Back to top
+  window.addEventListener('scroll', () => {
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // TOC active highlight
+  const sections = document.querySelectorAll('.policy-section');
+  const links = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+        if(active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
