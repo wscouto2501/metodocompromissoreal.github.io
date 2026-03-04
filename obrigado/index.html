@@ -926,7 +926,13 @@ revealEls.forEach(el => observer.observe(el));
 
 /* ── SHARE FUNCTIONS ── */
 function shareWhatsapp(){
-  const text = encodeURIComponent('Encontrei esse guia incrível sobre relacionamentos sérios — O Código do Compromisso. Vale muito a pena! 💕 ' + window.location.href);
+  const linkPrincipal = "https://metodocompromissoreal.com.br/";
+  
+  const text = encodeURIComponent(
+    "Encontrei esse guia incrível sobre relacionamentos sérios — O Código do Compromisso. Vale muito a pena! 💕 " 
+    + linkPrincipal
+  );
+
   window.open('https://wa.me/?text=' + text, '_blank');
 }
 function shareInstagram(){
