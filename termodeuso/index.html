@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Uso · O Código do Compromisso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose:        #C8536A;
+    --rose-dark:   #8A2D42;
+    --rose-light:  #F9E8EC;
+    --gold:        #C9A96E;
+    --gold-light:  #F5ECD8;
+    --cream:       #FEFAF5;
+    --deep:        #1C0A10;
+    --text:        #3A1E28;
+    --muted:       #7A6070;
+    --border:      rgba(200,83,106,0.1);
+    --white:       #FFFFFF;
+    --green:       #3D7A68;
+    --green-light: #E6F4F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.75;
+  }
+
+  /* ══ HEADER ══ */
+  header {
+    background: linear-gradient(150deg, #0D0508 0%, #2A0D18 55%, #451528 100%);
+    padding: 60px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '§';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 520px;
+    font-weight: 700;
+    color: rgba(201,169,110,0.05);
+    right: -60px; top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 55% at 30% 50%, rgba(200,83,106,0.12) 0%, transparent 70%);
+  }
+  .header-inner { position: relative; z-index: 1; }
+
+  .brand-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .brand-link:hover { color: var(--rose); }
+  .brand-link span { color: var(--rose); }
+
+  .header-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,169,110,0.12);
+    border: 1px solid rgba(201,169,110,0.28);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 22px;
+    border-radius: 50px;
+    margin-bottom: 22px;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 18px;
+  }
+  header h1 em { color: var(--gold); font-style: italic; }
+
+  .header-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 560px;
+    margin: 0 auto 20px;
+    line-height: 1.65;
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* ══ ALERT BANNER ══ */
+  .alert-banner {
+    background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
+    border-bottom: 3px solid var(--gold);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .alert-banner p {
+    font-size: 14px;
+    color: #6B4C00;
+    font-weight: 600;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .alert-banner strong { color: #4A3300; }
+
+  /* ══ LAYOUT ══ */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px 88px;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    gap: 52px;
+    align-items: start;
+  }
+  @media(max-width: 840px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar   { display: none; }
+  }
+
+  /* ══ SIDEBAR ══ */
+  .sidebar { position: sticky; top: 28px; }
+
+  .sidebar-nav {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 22px;
+    box-shadow: 0 6px 28px rgba(200,83,106,0.07);
+    border: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+  .nav-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: all 0.22s;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .toc a:hover, .toc a.active {
+    background: var(--gold-light);
+    color: #7A5C2A;
+  }
+  .toc-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .toc a:hover .toc-dot, .toc a.active .toc-dot { opacity: 1; }
+
+  .sidebar-info {
+    background: linear-gradient(135deg, var(--deep), #3D1020);
+    border-radius: 18px;
+    padding: 22px 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .sidebar-info .si-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .sidebar-info a { color: var(--gold); font-weight: 700; text-decoration: none; }
+  .sidebar-info a:hover { text-decoration: underline; }
+
+  /* ══ CONTENT ══ */
+  .content { min-width: 0; }
+
+  .update-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-light);
+    border: 1px solid rgba(61,122,104,0.2);
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 50px;
+    margin-bottom: 32px;
+  }
+
+  .preamble {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 38px 44px;
+    margin-bottom: 32px;
+    border-left: 5px solid var(--gold);
+    box-shadow: 0 4px 24px rgba(201,169,110,0.1);
+  }
+  .preamble p { font-size: 16px; color: var(--text); line-height: 1.82; }
+  .preamble p + p { margin-top: 14px; }
+  .preamble strong { color: var(--rose-dark); }
+  .preamble .accept-note {
+    margin-top: 18px;
+    background: linear-gradient(135deg, var(--rose-light), #FFE0E6);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 14.5px;
+    color: var(--rose-dark);
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* TERM SECTIONS */
+  .term-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 44px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    scroll-margin-top: 28px;
+    transition: box-shadow 0.3s;
+  }
+  .term-section:hover { box-shadow: 0 10px 40px rgba(200,83,106,0.09); }
+
+  .ts-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  .ts-icon {
+    width: 54px; height: 54px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+  .i1  { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+  .i2  { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .i3  { background: linear-gradient(135deg, #FCE4EC, #F8BBD9); }
+  .i4  { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .i5  { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .i6  { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+  .i7  { background: linear-gradient(135deg, #FFEBEE, #FFCDD2); }
+  .i8  { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+  .i9  { background: linear-gradient(135deg, #F9FBE7, #F0F4C3); }
+  .i10 { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); }
+  .i11 { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+  .i12 { background: linear-gradient(135deg, #EFEBE9, #D7CCC8); }
+
+  .ts-meta {}
+  .ts-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .ts-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.8vw, 27px);
+    font-weight: 700;
+    color: var(--deep);
+    line-height: 1.2;
+  }
+
+  .term-section p {
+    font-size: 15.5px;
+    color: #4A3040;
+    line-height: 1.84;
+    margin-bottom: 16px;
+  }
+  .term-section p:last-child { margin-bottom: 0; }
+  .term-section strong { color: var(--rose-dark); }
+  .term-section a { color: var(--rose); font-weight: 700; text-decoration: none; }
+  .term-section a:hover { text-decoration: underline; }
+
+  .term-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--deep);
+    margin: 22px 0 10px;
+  }
+
+  .ul-clean {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0 18px;
+  }
+  .ul-clean li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15.5px;
+    color: #4A3040;
+    line-height: 1.65;
+  }
+  .ul-clean li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 9px;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .ul-forbidden {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0 18px;
+  }
+  .ul-forbidden li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15.5px;
+    color: #4A3040;
+    line-height: 1.65;
+  }
+  .ul-forbidden li::before {
+    content: '✗';
+    color: var(--rose);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ul-allowed li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .callout {
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 18px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .callout-warning {
+    background: linear-gradient(135deg, #FFF8E1, #FFFDE7);
+    border: 1px solid rgba(201,169,110,0.3);
+  }
+  .callout-danger {
+    background: linear-gradient(135deg, var(--rose-light), #FFE0E6);
+    border: 1px solid rgba(200,83,106,0.2);
+  }
+  .callout-info {
+    background: linear-gradient(135deg, #E3F2FD, #EFF8FF);
+    border: 1px solid rgba(33,150,243,0.15);
+  }
+  .callout-success {
+    background: var(--green-light);
+    border: 1px solid rgba(61,122,104,0.2);
+  }
+  .callout-icon { font-size: 22px; flex-shrink: 0; }
+  .callout-body { font-size: 15px; line-height: 1.7; }
+  .callout-warning .callout-body { color: #6B4C00; }
+  .callout-danger .callout-body  { color: var(--rose-dark); }
+  .callout-info .callout-body    { color: #1565C0; }
+  .callout-success .callout-body { color: var(--green); }
+  .callout-body strong { font-weight: 700; }
+
+  .contact-card {
+    background: linear-gradient(135deg, var(--deep), #3D1020);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 18px;
+  }
+  .contact-card p { color: rgba(255,255,255,0.72); font-size: 15px; margin-bottom: 10px; }
+  .contact-card p:last-child { margin-bottom: 0; }
+  .contact-card a { color: var(--gold); font-weight: 700; text-decoration: none; }
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ══ SUMMARY TABLE ══ */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14.5px;
+  }
+  .summary-table th {
+    background: linear-gradient(135deg, var(--deep), #3D1020);
+    color: var(--white);
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .summary-table th:first-child { border-radius: 12px 0 0 0; }
+  .summary-table th:last-child  { border-radius: 0 12px 0 0; }
+  .summary-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    color: #4A3040;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:nth-child(even) td { background: rgba(249,232,236,0.3); }
+  .summary-table .ok  { color: var(--green); font-weight: 700; }
+  .summary-table .no  { color: var(--rose);  font-weight: 700; }
+
+  /* ══ FINAL BLOCK ══ */
+  .final-block {
+    background: linear-gradient(150deg, var(--deep), #3D1020, #5C1A32);
+    border-radius: 24px;
+    padding: 52px 44px;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-block::before {
+    content: '⚖';
+    position: absolute;
+    font-size: 300px;
+    color: rgba(201,169,110,0.05);
+    right: -40px; bottom: -60px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .final-block .fb-inner { position: relative; z-index: 1; }
+  .final-block .fb-icon  { font-size: 48px; margin-bottom: 16px; }
+  .final-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .final-block p { font-size: 15.5px; color: rgba(255,255,255,0.62); line-height: 1.7; max-width: 500px; margin: 0 auto 28px; }
+  .fb-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .fb-links a {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+  .fb-links a:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  /* ══ FOOTER ══ */
+  footer {
+    background: var(--deep);
+    padding: 36px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer p { color: rgba(255,255,255,0.3); font-size: 13px; line-height: 1.8; }
+  footer a { color: rgba(255,255,255,0.42); text-decoration: none; }
+  footer a:hover { color: var(--rose); }
+
+  /* ══ BACK TO TOP ══ */
+  #backTop {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 48px; height: 48px;
+    background: var(--gold);
+    color: var(--deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(201,169,110,0.45);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    border: none;
+    z-index: 100;
+  }
+  #backTop.visible { opacity: 1; pointer-events: all; }
+  #backTop:hover   { transform: translateY(-4px); background: var(--rose); color: #fff; }
+
+  /* ══ RESPONSIVE ══ */
+  @media(max-width: 600px) {
+    .term-section { padding: 28px 22px; }
+    .preamble     { padding: 28px 22px; }
+    .final-block  { padding: 36px 22px; }
+    .summary-table { font-size: 13px; }
+    .summary-table td, .summary-table th { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand-link">O Código do <span>Compromisso</span></a>
+    <div class="header-pill">📜 Documento Legal</div>
+    <h1>Termos de <em>Uso</em></h1>
+    <p class="header-desc">Leia com atenção antes de utilizar nosso site ou adquirir qualquer produto. Ao prosseguir, você concorda com as condições aqui descritas.</p>
+    <div class="header-meta">
+      <span>📅 Vigente desde Janeiro de 2025</span>
+      <span>📋 Versão 1.0</span>
+      <span>🇧🇷 Regido pelo Direito Brasileiro</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ ALERT ══ -->
+<div class="alert-banner">
+  <p>⚠️ <strong>Leia antes de continuar:</strong> O uso deste site e a aquisição de nossos produtos implicam a aceitação integral destes Termos de Uso. Se você não concorda com alguma cláusula, por favor, não utilize nossos serviços.</p>
+</div>
+
+<!-- ══ PAGE ══ -->
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-nav">
+      <div class="nav-label">Índice dos Termos</div>
+      <ul class="toc">
+        <li><a href="#t1"><span class="toc-dot"></span>1. Aceitação dos Termos</a></li>
+        <li><a href="#t2"><span class="toc-dot"></span>2. Definições</a></li>
+        <li><a href="#t3"><span class="toc-dot"></span>3. Sobre o Produto</a></li>
+        <li><a href="#t4"><span class="toc-dot"></span>4. Licença de Uso</a></li>
+        <li><a href="#t5"><span class="toc-dot"></span>5. Propriedade Intelectual</a></li>
+        <li><a href="#t6"><span class="toc-dot"></span>6. Compra e Pagamento</a></li>
+        <li><a href="#t7"><span class="toc-dot"></span>7. Política de Reembolso</a></li>
+        <li><a href="#t8"><span class="toc-dot"></span>8. Isenção de Responsabilidade</a></li>
+        <li><a href="#t9"><span class="toc-dot"></span>9. Conduta do Usuário</a></li>
+        <li><a href="#t10"><span class="toc-dot"></span>10. Links Externos</a></li>
+        <li><a href="#t11"><span class="toc-dot"></span>11. Alterações nos Termos</a></li>
+        <li><a href="#t12"><span class="toc-dot"></span>12. Disposições Gerais</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-info">
+      <div class="si-title">💬 Precisa de ajuda?</div>
+      <p>Dúvidas sobre compra, acesso ou reembolso:</p>
+      <p><a href="mailto:suporte@ocodigodocompromisso.com.br">suporte@ocodigodocompromisso.com.br</a></p>
+      <p style="margin-top:10px;">Questões legais e privacidade:</p>
+      <p><a href="mailto:privacidade@ocodigodocompromisso.com.br">privacidade@​ocodigodocompromisso.com.br</a></p>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="update-chip">✅ Em vigor desde Janeiro de 2025</div>
+
+    <!-- PREÂMBULO -->
+    <div class="preamble">
+      <p>Bem-vinda aos Termos de Uso de <strong>O Código do Compromisso</strong>. Este documento estabelece as regras e condições que regem o uso do nosso site, a aquisição e utilização dos nossos produtos digitais e qualquer interação com nossa plataforma.</p>
+      <p>Estes Termos constituem um <strong>contrato legal vinculante</strong> entre você ("Usuário") e o titular do produto ("Empresa"). São regidos pela legislação brasileira, especialmente o Código de Defesa do Consumidor (Lei nº 8.078/1990), o Marco Civil da Internet (Lei nº 12.965/2014) e a LGPD (Lei nº 13.709/2018).</p>
+      <div class="accept-note">
+        ⚠️ Ao acessar este site, clicar em "comprar" ou utilizar qualquer produto nosso, você declara ter lido, compreendido e concordado com todos estes Termos.
+      </div>
+    </div>
+
+    <!-- 1. ACEITAÇÃO -->
+    <div class="term-section" id="t1">
+      <div class="ts-header">
+        <div class="ts-icon i1">📝</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 01</div>
+          <div class="ts-title">Aceitação dos Termos</div>
+        </div>
+      </div>
+      <p>O acesso e uso deste site e de nossos produtos estão condicionados à aceitação e cumprimento destes Termos. Eles se aplicam a todos os visitantes, usuários e compradores.</p>
+      <p>A aceitação ocorre de forma implícita pelo simples <strong>uso contínuo do site</strong> ou de forma explícita ao concluir uma compra. Se você não concordar com qualquer parte destes Termos, não deverá utilizar nosso site ou adquirir nossos produtos.</p>
+      <p>Estes Termos devem ser lidos em conjunto com nossa <a href="politica.html">Política de Privacidade</a>, que também faz parte deste acordo.</p>
+    </div>
+
+    <!-- 2. DEFINIÇÕES -->
+    <div class="term-section" id="t2">
+      <div class="ts-header">
+        <div class="ts-icon i2">📖</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 02</div>
+          <div class="ts-title">Definições</div>
+        </div>
+      </div>
+      <p>Para melhor compreensão destes Termos, os seguintes termos têm o significado abaixo:</p>
+      <ul class="ul-clean">
+        <li><strong>"Site"</strong> — refere-se ao conjunto de páginas hospedadas sob o domínio do produto O Código do Compromisso.</li>
+        <li><strong>"Produto" ou "Ebook"</strong> — refere-se ao livro digital (e-book) denominado "O Código do Compromisso" e a todos os bônus a ele associados.</li>
+        <li><strong>"Usuário" ou "você"</strong> — qualquer pessoa que acesse o site, crie uma conta, realize uma compra ou interaja de qualquer forma com nossa plataforma.</li>
+        <li><strong>"Empresa", "nós" ou "nosso"</strong> — refere-se ao titular dos direitos sobre o produto O Código do Compromisso.</li>
+        <li><strong>"Conteúdo"</strong> — todos os textos, imagens, vídeos, áudios, materiais digitais e demais criações disponíveis no site ou nos produtos.</li>
+        <li><strong>"Plataforma de Pagamento"</strong> — o serviço terceirizado utilizado para processar transações financeiras (ex.: Hotmart, Kiwify, Monetizze ou similar).</li>
+      </ul>
+    </div>
+
+    <!-- 3. PRODUTO -->
+    <div class="term-section" id="t3">
+      <div class="ts-header">
+        <div class="ts-icon i3">💝</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 03</div>
+          <div class="ts-title">Sobre o Produto e sua Natureza</div>
+        </div>
+      </div>
+      <p>O Código do Compromisso é um <strong>produto de informação digital</strong> (e-book) com conteúdo voltado ao desenvolvimento pessoal, autoconhecimento e habilidades relacionais. Destina-se exclusivamente a maiores de 18 anos.</p>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body"><strong>Aviso importante sobre resultados:</strong> O conteúdo deste produto é de natureza educativa e informativa. Os resultados obtidos pelos usuários dependem de fatores individuais como dedicação, histórico pessoal, contexto de vida e esforço de aplicação. Não garantimos resultados específicos, prazos determinados ou desfechos amorosos particulares.</div>
+      </div>
+
+      <p>O produto <strong>não substitui</strong> acompanhamento psicológico, terapia, aconselhamento profissional de saúde mental ou qualquer outra forma de tratamento especializado. Se você estiver passando por dificuldades emocionais significativas, recomendamos buscar suporte profissional qualificado.</p>
+      <p>O conteúdo é baseado em pesquisas sobre comportamento humano e relacionamentos, apresentado de forma acessível para fins educativos e de desenvolvimento pessoal.</p>
+    </div>
+
+    <!-- 4. LICENÇA -->
+    <div class="term-section" id="t4">
+      <div class="ts-header">
+        <div class="ts-icon i4">🔑</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 04</div>
+          <div class="ts-title">Licença de Uso Pessoal</div>
+        </div>
+      </div>
+      <p>Ao adquirir o produto, a Empresa concede a você uma licença <strong>pessoal, intransferível, não exclusiva e revogável</strong> para uso do conteúdo, exclusivamente para fins pessoais e não comerciais.</p>
+
+      <h3>✅ O que você PODE fazer</h3>
+      <ul class="ul-clean ul-allowed">
+        <li>Baixar e armazenar o e-book em seus dispositivos pessoais para uso próprio.</li>
+        <li>Imprimir uma cópia para uso pessoal.</li>
+        <li>Reler o material quantas vezes desejar.</li>
+        <li>Compartilhar sua experiência e aprendizados (sem reproduzir o conteúdo integral).</li>
+      </ul>
+
+      <h3>✗ O que você NÃO pode fazer</h3>
+      <ul class="ul-forbidden">
+        <li>Reproduzir, copiar ou distribuir o conteúdo total ou parcialmente sem autorização expressa.</li>
+        <li>Compartilhar o arquivo com terceiros — cada compra é para uso individual.</li>
+        <li>Revender, sublicenciar ou ceder o produto a qualquer pessoa ou empresa.</li>
+        <li>Usar o conteúdo para criar produtos derivados, cursos, palestras ou materiais pagos.</li>
+        <li>Publicar trechos substanciais em blogs, redes sociais ou qualquer meio sem autorização.</li>
+        <li>Remover avisos de direitos autorais ou marcas d'água do conteúdo.</li>
+      </ul>
+
+      <div class="callout callout-danger">
+        <span class="callout-icon">🚫</span>
+        <div class="callout-body"><strong>Violações serão tratadas legalmente.</strong> O uso indevido do produto configura violação aos direitos autorais (Lei nº 9.610/1998) e pode resultar em ações cíveis e/ou criminais, incluindo pedido de indenização por danos materiais e morais.</div>
+      </div>
+    </div>
+
+    <!-- 5. PROPRIEDADE INTELECTUAL -->
+    <div class="term-section" id="t5">
+      <div class="ts-header">
+        <div class="ts-icon i5">©️</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 05</div>
+          <div class="ts-title">Propriedade Intelectual</div>
+        </div>
+      </div>
+      <p>Todo o conteúdo disponível no site e nos produtos — incluindo, mas não se limitando a textos, gráficos, logotipos, ícones, imagens, clipes de áudio, downloads digitais e compilações de dados — é de <strong>propriedade exclusiva da Empresa</strong> ou de seus licenciantes e está protegido pela legislação brasileira e internacional de direitos autorais e propriedade intelectual.</p>
+
+      <p>A marca, nome comercial e identidade visual de <strong>"O Código do Compromisso"</strong> são de propriedade exclusiva da Empresa. É vedado o uso de qualquer desses elementos para fins comerciais sem autorização prévia e por escrito.</p>
+
+      <p>A compra do produto <strong>não transfere qualquer direito de propriedade intelectual</strong> ao comprador — apenas concede a licença de uso pessoal descrita na Cláusula 4.</p>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">Para solicitar autorização de uso do conteúdo para fins comerciais, parcerias ou co-autoria, entre em contato via <strong>suporte@ocodigodocompromisso.com.br</strong>.</div>
+      </div>
+    </div>
+
+    <!-- 6. COMPRA E PAGAMENTO -->
+    <div class="term-section" id="t6">
+      <div class="ts-header">
+        <div class="ts-icon i6">💳</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 06</div>
+          <div class="ts-title">Compra, Preço e Pagamento</div>
+        </div>
+      </div>
+      <p>A aquisição do produto é realizada através de plataforma de pagamento terceirizada. Ao concluir a compra, você concorda também com os termos e condições dessa plataforma.</p>
+
+      <ul class="ul-clean">
+        <li><strong>Preços:</strong> os valores são exibidos em reais (BRL) e podem ser alterados a qualquer momento pela Empresa, sem aviso prévio. O preço vigente no momento da compra é o aplicável.</li>
+        <li><strong>Métodos de pagamento:</strong> cartão de crédito, PIX e boleto bancário, conforme disponibilidade na plataforma de pagamento.</li>
+        <li><strong>Confirmação:</strong> após a confirmação do pagamento, você receberá o acesso ao produto por e-mail em até 60 minutos. Em caso de demora, verifique a pasta de spam.</li>
+        <li><strong>Nota fiscal:</strong> quando aplicável, será emitida conforme os dados fornecidos no momento da compra. Certifique-se de preencher corretamente seus dados.</li>
+        <li><strong>Segurança:</strong> não armazenamos dados de cartão de crédito. Todas as transações são processadas com criptografia SSL pela plataforma de pagamento.</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">Em caso de falha no recebimento do acesso após a confirmação do pagamento, entre em contato com nosso suporte em até 48 horas.</div>
+      </div>
+    </div>
+
+    <!-- 7. REEMBOLSO -->
+    <div class="term-section" id="t7">
+      <div class="ts-header">
+        <div class="ts-icon i7">↩️</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 07</div>
+          <div class="ts-title">Política de Reembolso e Garantia</div>
+        </div>
+      </div>
+      <p>Oferecemos <strong>garantia incondicional de 7 (sete) dias</strong> a partir da data de compra, conforme previsto no artigo 49 do Código de Defesa do Consumidor (direito de arrependimento em compras à distância).</p>
+
+      <h3>Como solicitar o reembolso</h3>
+      <ul class="ul-clean">
+        <li>Envie um e-mail para <strong>suporte@ocodigodocompromisso.com.br</strong> dentro do prazo de 7 dias.</li>
+        <li>Informe o nome completo utilizado na compra, e-mail e, se possível, o número do pedido.</li>
+        <li>Não é necessário justificar o motivo do pedido.</li>
+        <li>O reembolso será processado em até <strong>10 dias úteis</strong>, conforme a política da plataforma de pagamento.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <span class="callout-icon">✅</span>
+        <div class="callout-body"><strong>Sem perguntas, sem burocracia.</strong> Respeitamos sua decisão. Se dentro de 7 dias você sentir que o produto não é para você, devolvemos 100% do valor pago.</div>
+      </div>
+
+      <p>Após o prazo de 7 dias, não será possível processar reembolsos, exceto em casos comprovados de falha técnica grave na entrega do produto ou duplicidade de cobrança. Nesses casos, analisaremos individualmente.</p>
+
+      <h3>Resumo: O que está coberto pela garantia</h3>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Situação</th>
+            <th>Reembolso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arrependimento dentro de 7 dias</td>
+            <td class="ok">✓ Garantido</td>
+          </tr>
+          <tr>
+            <td>Falha técnica na entrega</td>
+            <td class="ok">✓ Garantido</td>
+          </tr>
+          <tr>
+            <td>Cobrança duplicada</td>
+            <td class="ok">✓ Garantido</td>
+          </tr>
+          <tr>
+            <td>Solicitação após 7 dias (sem falha técnica)</td>
+            <td class="no">✗ Não garantido</td>
+          </tr>
+          <tr>
+            <td>"Não gostei do conteúdo" após 7 dias</td>
+            <td class="no">✗ Não garantido</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. ISENÇÃO -->
+    <div class="term-section" id="t8">
+      <div class="ts-header">
+        <div class="ts-icon i8">⚖️</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 08</div>
+          <div class="ts-title">Isenção e Limitação de Responsabilidade</div>
+        </div>
+      </div>
+      <p>O conteúdo do produto é fornecido para fins informativos e educativos. Fazemos nosso melhor para garantir a qualidade e precisão do material, mas <strong>não garantimos que os resultados descritos serão obtidos</strong> por todos os usuários.</p>
+      <p>A Empresa não se responsabiliza por:</p>
+      <ul class="ul-forbidden">
+        <li>Decisões tomadas com base no conteúdo do produto que resultem em qualquer tipo de dano emocional, relacional ou de outra natureza.</li>
+        <li>Incompatibilidade do produto com suas circunstâncias pessoais, culturais ou relacionais específicas.</li>
+        <li>Interrupções, falhas ou indisponibilidade temporária do site ou plataformas de terceiros.</li>
+        <li>Danos causados por vírus, ataques cibernéticos ou outras ameaças tecnológicas fora do nosso controle.</li>
+        <li>Conteúdo de sites externos para os quais nosso site possa conter links.</li>
+      </ul>
+      <p>Nossa responsabilidade total perante você, em qualquer circunstância, é limitada ao valor pago pelo produto adquirido.</p>
+    </div>
+
+    <!-- 9. CONDUTA -->
+    <div class="term-section" id="t9">
+      <div class="ts-header">
+        <div class="ts-icon i9">🤝</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 09</div>
+          <div class="ts-title">Conduta do Usuário</div>
+        </div>
+      </div>
+      <p>Ao utilizar nosso site e produtos, você concorda em fazê-lo de forma responsável e ética. É expressamente vedado:</p>
+      <ul class="ul-forbidden">
+        <li>Usar o site ou os produtos para qualquer finalidade ilegal ou não autorizada.</li>
+        <li>Tentar burlar, hackear ou comprometer a segurança do site ou das plataformas associadas.</li>
+        <li>Publicar conteúdo falso, difamatório ou enganoso sobre o produto ou a Empresa.</li>
+        <li>Usar bots, scripts ou outros meios automatizados para acessar o site de forma não autorizada.</li>
+        <li>Realizar chargebacks fraudulentos (contestação indevida de pagamento já utilizado).</li>
+        <li>Criar múltiplas contas para obter vantagens indevidas ou circumventar bloqueios.</li>
+      </ul>
+      <p>O descumprimento destas regras pode resultar no cancelamento imediato do acesso ao produto, sem direito a reembolso, além de eventuais medidas legais cabíveis.</p>
+    </div>
+
+    <!-- 10. LINKS EXTERNOS -->
+    <div class="term-section" id="t10">
+      <div class="ts-header">
+        <div class="ts-icon i10">🔗</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 10</div>
+          <div class="ts-title">Links para Sites de Terceiros</div>
+        </div>
+      </div>
+      <p>Nosso site pode conter links para sites externos que não são operados por nós. Esses links são fornecidos apenas para conveniência e informação.</p>
+      <p>A Empresa <strong>não tem controle</strong> sobre o conteúdo, práticas de privacidade ou disponibilidade desses sites e <strong>não assume responsabilidade</strong> por eles. O acesso a qualquer site externo é de inteira responsabilidade do usuário.</p>
+      <p>Recomendamos que você leia os termos de uso e a política de privacidade de qualquer site externo que visitar.</p>
+    </div>
+
+    <!-- 11. ALTERAÇÕES -->
+    <div class="term-section" id="t11">
+      <div class="ts-header">
+        <div class="ts-icon i11">🔄</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 11</div>
+          <div class="ts-title">Alterações nestes Termos</div>
+        </div>
+      </div>
+      <p>A Empresa reserva-se o direito de modificar estes Termos de Uso a qualquer momento, a seu exclusivo critério. As alterações entrarão em vigor imediatamente após a publicação da versão atualizada nesta página.</p>
+      <p>Em caso de <strong>alterações relevantes</strong> que afetem direitos dos usuários, faremos o possível para notificá-los por e-mail ou por aviso destacado no site com antecedência razoável.</p>
+      <p>O uso continuado do site ou dos produtos após a publicação de alterações constitui aceitação das novas condições. Caso não concorde com as alterações, você deve cessar o uso dos nossos serviços e, se aplicável, solicitar o reembolso dentro do prazo de garantia.</p>
+      <p>Recomendamos que você revise estes Termos periodicamente. A data de "última atualização" no cabeçalho desta página indica quando a versão vigente foi publicada.</p>
+    </div>
+
+    <!-- 12. DISPOSIÇÕES GERAIS -->
+    <div class="term-section" id="t12">
+      <div class="ts-header">
+        <div class="ts-icon i12">⚖️</div>
+        <div class="ts-meta">
+          <div class="ts-num">Cláusula 12</div>
+          <div class="ts-title">Disposições Gerais e Foro</div>
+        </div>
+      </div>
+      <p>Estes Termos constituem o acordo integral entre você e a Empresa em relação ao uso do site e dos produtos, substituindo quaisquer entendimentos ou acordos anteriores sobre o mesmo assunto.</p>
+      <ul class="ul-clean">
+        <li><strong>Legislação aplicável:</strong> estes Termos são regidos e interpretados de acordo com as leis da República Federativa do Brasil.</li>
+        <li><strong>Foro:</strong> fica eleito o foro da comarca do domicílio do consumidor para dirimir quaisquer controvérsias oriundas destes Termos, sem prejuízo de outras formas de resolução de conflitos.</li>
+        <li><strong>Invalidade parcial:</strong> se qualquer disposição destes Termos for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor e efeito.</li>
+        <li><strong>Não renúncia:</strong> a falta de exercício de qualquer direito previsto nestes Termos não constituirá renúncia a esse direito em qualquer outro momento.</li>
+        <li><strong>Integração:</strong> estes Termos devem ser lidos em conjunto com a nossa <a href="politica.html">Política de Privacidade</a>.</li>
+      </ul>
+
+      <div class="contact-card">
+        <p>📧 Suporte geral: <a href="mailto:suporte@ocodigodocompromisso.com.br">suporte@ocodigodocompromisso.com.br</a></p>
+        <p>🔒 Privacidade e dados: <a href="mailto:privacidade@ocodigodocompromisso.com.br">privacidade@ocodigodocompromisso.com.br</a></p>
+        <p>⏱️ Tempo de resposta: até 3 dias úteis</p>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="final-block">
+      <div class="fb-inner">
+        <div class="fb-icon">📜</div>
+        <h3>Obrigada por ler nossos Termos</h3>
+        <p>Transparência e respeito ao consumidor são valores que levamos a sério. Qualquer dúvida sobre estes Termos, estamos à disposição.</p>
+        <div class="fb-links">
+          <a href="index.html">← Voltar ao site</a>
+          <a href="politica.html">Política de Privacidade</a>
+          <a href="obrigado.html">Página de Obrigado</a>
+          <a href="mailto:suporte@ocodigodocompromisso.com.br">Falar com Suporte</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div style="max-width:900px;margin:0 auto;">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,255,255,0.5);font-size:18px;margin-bottom:10px;">O Código do <span style="color:#C8536A;">Compromisso</span></p>
+    <p>© 2025 O Código do Compromisso · Todos os direitos reservados<br>
+      <a href="index.html">Início</a> · <a href="politica.html">Política de Privacidade</a> · <a href="termodeuso.html">Termos de Uso</a> · <a href="mailto:suporte@ocodigodocompromisso.com.br">Suporte</a>
+    </p>
+    <p style="margin-top:10px;font-size:12px;">Regido pela legislação brasileira · CDC (Lei 8.078/1990) · Marco Civil (Lei 12.965/2014) · LGPD (Lei 13.709/2018)</p>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Back to top
+  window.addEventListener('scroll', () => {
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // TOC highlight on scroll
+  const sections = document.querySelectorAll('.term-section');
+  const links    = document.querySelectorAll('.toc a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
