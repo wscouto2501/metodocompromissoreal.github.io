@@ -626,14 +626,10 @@
         Verifique sua caixa de entrada — o e-mail com o <strong>link de download</strong> foi enviado agora mesmo. Não encontrou? Cheque também a pasta de <strong>spam ou promoções</strong>.
       </p>
 
-      <a href="#" class="btn-access">
+      <a href="https://dashboard.kiwify.com/student/password/undefined?redirect=/course/f27c12c7-289d-4726-8e43-30eee74b8a3c" class="btn-access">
         ↓ Baixar meu ebook agora
         <span class="sub">Clique para acessar seu material completo</span>
       </a>
-
-      <div class="access-divider">ou acesse pelo e-mail</div>
-
-      <a href="mailto:" class="btn-email">📧 Verificar minha caixa de entrada</a>
     </div>
 
   </div>
@@ -938,7 +934,11 @@ function shareInstagram(){
   showToast('🔗 Link copiado! Cole na sua bio ou Stories do Instagram.');
 }
 function copyLink(){
-  navigator.clipboard.writeText(window.location.href).then(() => showToast('✅ Link copiado para a área de transferência!'));
+  const linkPrincipal = "https://metodocompromissoreal.com.br/";
+  
+  navigator.clipboard.writeText(linkPrincipal)
+    .then(() => showToast('✅ Link copiado para a área de transferência!'))
+    .catch(err => console.error('Erro ao copiar:', err));
 }
 function showToast(msg){
   const toast = document.getElementById('toast');
